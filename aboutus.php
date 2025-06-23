@@ -474,7 +474,7 @@
 
       <!-- Botões animados -->
       <div class="itens-links">
-        <a href="/frontpage.html">
+        <a href="frontpage.php">
           <button class="animated-button">
             <svg viewBox="0 0 24 24" class="arr-2">
               <path
@@ -489,7 +489,7 @@
           </button>
         </a>
 
-        <a href="/fichas.html">
+        <a href="fichas.php">
           <button class="animated-button">
             <svg viewBox="0 0 24 24" class="arr-2">
               <path
