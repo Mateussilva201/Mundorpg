@@ -7,6 +7,7 @@
     <title>Ficha Nova</title>
 <script src="gen.js"></script>
 </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const quadro = document.querySelector("#quadro");
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsection: 1
   };
 
-  //  "Adicionar"
+  // Botão "Adicionar"
   const btnAdicionar = document.createElement("button");
   btnAdicionar.textContent = "Adicionar";
   btnAdicionar.className = "anxiety";
@@ -39,32 +40,34 @@ document.addEventListener("DOMContentLoaded", () => {
     div.style.position = "absolute";
     div.style.left = "100px";
     div.style.top = "100px";
+    div.dataset.bloqueado = "false";
 
-    //  apagar
+    // Botão excluir (direita)
     const btnExcluir = document.createElement("button");
     btnExcluir.textContent = "✖";
     btnExcluir.title = "Excluir card";
-    btnExcluir.style.position = "absolute";
-    btnExcluir.style.top = "6px";
-    btnExcluir.style.right = "6px";
-    btnExcluir.style.width = "24px";
-    btnExcluir.style.height = "24px";
-    btnExcluir.style.background = "#7003c9";
-    btnExcluir.style.color = "white";
-    btnExcluir.style.border = "none";
-    btnExcluir.style.borderRadius = "50%";
-    btnExcluir.style.cursor = "pointer";
-    btnExcluir.style.zIndex = "999";
-    btnExcluir.style.fontWeight = "bold";
-
+    btnExcluir.className = "btn-fechar";
     btnExcluir.addEventListener("click", (e) => {
       e.stopPropagation();
       div.remove();
     });
-
     div.appendChild(btnExcluir);
 
-    // Campos do card
+    // Botão bloqueio (esquerda)
+    const btnLock = document.createElement("button");
+    btnLock.textContent = "🔓";
+    btnLock.title = "Bloquear/Desbloquear card";
+    btnLock.className = "btn-lock";
+    btnLock.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const bloqueado = div.dataset.bloqueado === "true";
+      div.dataset.bloqueado = bloqueado ? "false" : "true";
+      btnLock.textContent = bloqueado ? "🔓" : "🔒";
+      div.style.opacity = bloqueado ? "1" : "0.85";
+    });
+    div.appendChild(btnLock);
+
+    // Campos
     if (tipo === "cardsection") {
       const input = document.createElement("input");
       input.className = "texto1";
@@ -95,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isDragging = false, offsetX = 0, offsetY = 0;
 
     el.addEventListener("mousedown", e => {
+      if (el.dataset.bloqueado === "true") return;
       isDragging = true;
       offsetX = e.offsetX;
       offsetY = e.offsetY;
@@ -116,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //  cards no localStorage
+  // Botão Voltar salva no localStorage
   if (btnVoltar) {
     btnVoltar.addEventListener("click", () => {
       const dados = [];
@@ -129,7 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
           pos: {
             left: card.style.left,
             top: card.style.top
-          }
+          },
+          bloqueado: card.dataset.bloqueado === "true"
         });
       });
 
@@ -138,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Restaurar 
+  // Restaurar do localStorage
   const restaurados = JSON.parse(localStorage.getItem("fichaGenericRecord") || "[]");
   restaurados.forEach(info => {
     const card = criarCard(info.tipo, info.campos.length);
@@ -148,11 +153,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     card.style.left = info.pos.left;
     card.style.top = info.pos.top;
+    card.dataset.bloqueado = info.bloqueado ? "true" : "false";
+    const btnLock = card.querySelector(".btn-lock");
+    if (btnLock) btnLock.textContent = info.bloqueado ? "🔒" : "🔓";
     quadro.appendChild(card);
     ativarDragSuave(card);
   });
 });
 </script>
+
+
 
 
 
@@ -394,6 +404,29 @@ margin-top: 50px;
   100% {
     fill: white;
   }
+}
+
+.btn-fechar, .btn-lock {
+  width: 24px;
+  height: 24px;
+  background: #7003c9;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 999;
+  position: absolute;
+}
+
+.btn-fechar {
+  top: 6px;
+  right: 6px;
+}
+
+.btn-lock {
+  top: 6px;
+  left: 200px;
 }
 
 
