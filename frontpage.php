@@ -495,7 +495,7 @@
 <body>
   <main>
     <!-- Seção de Gradiente -->
-    <section class="section-gradiente">
+
       <section class="section-gradiente">
         <div class="box-gradiente">
           <div class="card-titulo-gradiente"> <!-- aqui está o título animado -->
