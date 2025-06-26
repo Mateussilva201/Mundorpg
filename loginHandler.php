@@ -13,9 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario', '$senha')";
 
     if ($conexao->query($sql) === TRUE) {
-        echo "<script>alert('Usuário cadastrado com sucesso!'); window.location.href='frontpage.php';</script>";
+        echo "<script> window.location.href='receba.php';</script>";
     } else {
         echo "Erro: " . $conexao->error;
     }
 }
 ?>
+
+
