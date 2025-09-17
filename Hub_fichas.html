@@ -16,13 +16,17 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+   
 }
+
+
 
 body {
   background-color: #111;
   color: white;
   font-family: sans-serif;
   padding: 20px;
+  
 }
 
 /* Container para alinhar logo e título lado a lado */
@@ -299,6 +303,22 @@ button.voltar:hover span {
 button.voltar:active {
   transform: scale(0.95);
 }
+
+#selecionarTodasBtn {
+
+}
+
+
+.ativo {
+
+
+}
+
+::selection {
+  background-color: #3f3e4121;
+  color: #450679;
+}
+
 </style>
 <body>
   <header>
@@ -309,10 +329,10 @@ button.voltar:active {
 
   <main>
     <div class="btns">
-      <a class="link" href="fichas.php"><button class="voltar"><span class="text">Voltar</span></button></a>   
+      <a class="link" href="fichas.html"><button class="voltar"><span class="text">Voltar</span></button></a>   
 
       <button id="addFichaGenerica"><span class="text">Criar Ficha Generica</span></button>
-      <button id="addFichaBtn"><span class="text">Criar Ficha Nova</span></button>
+      
       <button id="removerFichasBtn"><span class="text">Remover Fichas Selecionadas</span></button>
       <button id="selecionarTodasBtn"><span class="text">Selecionar Todas</span></button>
     </div>
@@ -332,7 +352,7 @@ button.voltar:active {
     let tudoSelecionado = false;
     
     // Função principal que adiciona a ficha
-    function adicionarFicha(nome = "Ficha Nova", marcada = true, id = Date.now(), destino = "f_g.php") {
+    function adicionarFicha(nome = "Ficha Nova", marcada = true, id = Date.now(), destino = "f_g.html") {
       const novaFicha = document.createElement("li");
       novaFicha.dataset.id = id;
       novaFicha.dataset.destino = destino;
@@ -408,14 +428,11 @@ button.voltar:active {
       salvarFichas();
     }
     
-    // Botão para adicionar Ficha Nova (vai para f_n.html)
-    btnAdicionar.addEventListener("click", function () {
-      adicionarFicha("Ficha Nova", false, Date.now(), "f_n.php");
-    });
+    
     
     // Botão para adicionar Ficha Genérica (vai para f_g.html)
     btnAdicionarGenerica.addEventListener("click", function () {
-      adicionarFicha("Ficha Genérica", false, Date.now(), "f_g.php");
+      adicionarFicha("Ficha Genérica", false, Date.now(), "f_g.html");
     });
     
     // Botão para remover fichas selecionadas
@@ -434,17 +451,18 @@ button.voltar:active {
       salvarFichas();
     });
     
-    // Botão selecionar todas
+    // selecionar todas
     btnSelecionarTodas.addEventListener("click", () => {
       const fichas = document.querySelectorAll("#listaFichas li input[type='checkbox']");
       fichas.forEach(checkbox => {
-        checkbox.checked = !tudoSelecionado;
+        checkbox.checked = tudoSelecionado;
+        
       });
     
       tudoSelecionado = !tudoSelecionado;
       btnSelecionarTodas.textContent = tudoSelecionado ? "Desmarcar Todas" : "Selecionar Todas";
     
-      // 🔁 Aplica ou remove a classe visual ativa
+      // Aplica ou remove a classe visual ativa
       btnSelecionarTodas.classList.toggle("ativo", tudoSelecionado);
     
       salvarFichas();
@@ -483,7 +501,7 @@ button.voltar:active {
         const nome = li.querySelector("span").textContent;
         const marcada = li.querySelector("input[type='checkbox']").checked;
         const id = li.dataset.id;
-        const destino = li.dataset.destino || "f_g.php"; // <- novo
+        const destino = li.dataset.destino || "f_g.html"; // <- novo
         fichas.push({ id, nome, marcada, destino });
       });
       localStorage.setItem("fichas", JSON.stringify(fichas));
