@@ -12,7 +12,7 @@
     @import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap");
     @import url('https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
     
-    /* Fonte:
+    /* pra fonte hauhsuha:
        font-family: "Anton", sans-serif;
        font-style: normal; 
     */
@@ -38,9 +38,9 @@
       font-size: 16px;
       font-style: normal;
       font-optical-sizing: auto;
+      
     }
     
-    /* Gradiente fixo no topo */
     .section-gradiente {
       width: 100%;
       z-index: 1000;
@@ -82,7 +82,7 @@
       }
     }
     
-    /* Estilização geral de links */
+    
     a {
       color: inherit;
       text-decoration: none;
@@ -95,7 +95,6 @@
       align-items: baseline;
     }
     
-    /* Texto com brilho */
     .txt-brilho {
       letter-spacing: 2px;
       animation: brilho 2.5s ease-in-out infinite;
@@ -134,15 +133,15 @@
       }
     }
     
-    /* Título com degradê animado */
+    /*  degradê  */
     .itens-links {
       margin-left: 20px;
       font-size: 1.1rem;
       transition: color 0.3s;
     }
     
-    /* Botão animado */
-    
+ 
+  
     .animated-button {
       margin-top: 15px;
       position: relative;
@@ -232,7 +231,7 @@
       opacity: 1;
     }
     
-    /* Fim - Animaçao do botão dos links */
+    
     
     .container-principal {
       padding-top: 180px;
@@ -374,7 +373,7 @@
     }
     
     
-    /* Carrossel */
+    
     .carrocel-1 {
       width: 100%;
       height: 250px;
@@ -431,7 +430,7 @@
       transform: scale(1.03);
     }
     
-    /* Footer */
+   
     .footer {
       color: white;
       padding: 30px 20px 15px;
@@ -473,7 +472,7 @@
       color: #666666;
     }
     
-    /* Responsivo */
+
     @media (max-width: 480px) {
       .card-titulo-gradiente {
         font-size: 40px;
@@ -545,7 +544,121 @@ background-color: #9b6bd3;
 
 }
 
+.home:hover {
+ cursor: pointer;
+ background-color: #9b6bd3;
+    }
+    .home2:hover {
+ cursor: pointer;
+ background-color: #9b6bd3;
+    }
+    .home2 {
+display: none;
+
+    }
+@media screen and (max-width: 350px) {
+  .menuhorizon {
+display: flex;
+justify-content: center;
+font-size: 5px;
+
+}
+.container-principal {
+  font-size: 10px;
+display: flex;
+justify-content: center;
+height: 700px;
+
+}
+.card-principal {
+font-size: 15px;
+display: flex;
+justify-content: center;
+}
+
+.slide {
+  width: 10px;
+}
+
+
+}
+ 
+
     
+@media screen and (max-width: 600px) {
+.menuhorizon {
+display: flex;
+justify-content: center;
+font-size: 14px;
+}
+.slide {
+ 
+}
+
+
+
+}
+
+@media screen and (max-width: 450px) {
+.menuhorizon {
+display: flex;
+justify-content: center;
+font-size: 10px;
+}
+.container-principal {
+  font-size: 10px;
+display: flex;
+justify-content: center;
+height: 700px;
+
+}
+.card-principal {
+font-size: 15px;
+display: flex;
+justify-content: center;
+}
+
+.slide {
+  width: 10px;
+}
+
+
+
+}
+@media screen and (max-width: 450px) {
+  .menuhorizon {
+display: flex;
+justify-content: center;
+font-size: 7px;
+}
+.container-principal {
+  font-size: 10px;
+display: flex;
+justify-content: center;
+
+
+}
+.card-principal {
+font-size: 10px;
+display: flex;
+justify-content: center;
+}
+}
+
+@media screen and (max-width: 1024px) {
+  .container-principal {
+bottom: 30px;
+display: flex;
+justify-content: center;
+
+
+}
+.card-principal {
+font-size: 15px;
+display: flex;
+justify-content: center;
+}
+}
     </style>
 <body>
   <main>
@@ -554,94 +667,11 @@ background-color: #9b6bd3;
     <h2 class="fichas2 "><a href="fichas.html">Fichas</a></h2>
     <h2 class="sobre2 "><a href="aboutus.html">Sobre nós</a></h2>
     <h2 class="login2"><a href="login.html">Login</a></h2>
-
+<h2 class="home"> <a href="frontpage.html">Home</a></h2>
+<h2 class="home2" id="botao-sair"> <a href="frontpage.html">Sair</a></h2>
 
    </div>
    
-   
-   
-   
-    
-
-     <!----  <section class="section-gradiente">
-        <div class="box-gradiente">
-          <div class="card-titulo-gradiente"> 
-            <div class="container-card-gradiente">
-              <h1 class="titulo-mundo">
-                Amphiter 
-              </h1>
-            </div>
-          </div> 
-
-           links abaixo
-           <div class="itens-links">
-            <a href="aboutus.php">
-              <button class="animated-button">
-                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                  </path>
-                </svg>
-                <span class="text">Sobre nós</span>
-                <span class="circle"></span>
-                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                  </path>
-                </svg>
-              </button>
-            </a>
-            <a href="fichas.php">
-              <button class="animated-button">
-                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                  </path>
-                </svg>
-                <span class="text">Fichas</span>
-                <span class="circle"></span>
-                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                  </path>
-                </svg>
-              </button>
-            </a>
-            <a href="login.php">
-              <button class="animated-button">
-                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                  </path>
-                </svg>
-                <span class="text">Login</span>
-                <span class="circle"></span>
-                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                  </path>
-                </svg>
-              </button>
-            </a>
-            <a href="logout.php">
-              <button class="animated-button">
-                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                </svg>
-                <span class="text">Sair</span>
-                <span class="circle"></span>
-                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                </svg>
-              </button>
-            </a>
-            
-          </div>
-        </div>
-      </section> 
-       -->
-
-      <!-- Seção Principal -->
       <section class="secao-principal">
         <div class="imagem-card">
           <img src="imagens/Wallpaper_principal.png" alt="Fundo" />
@@ -675,7 +705,7 @@ background-color: #9b6bd3;
         </div>
       </section>
 
-      <!-- Carrossel -->
+   
       <div class="carrocel-1">
         <div class="carrocel-1-slide-track">
           <div class="slide">
@@ -726,7 +756,7 @@ background-color: #9b6bd3;
         </div>
       </div>
 
-      <!-- Rodapé -->
+      
       <footer class="footer">
         <div class="footer-container">
           <div class="footer-status">
@@ -745,6 +775,30 @@ background-color: #9b6bd3;
         </div>
       </footer>
   </main>
+  <script>
+    const nomeUsuario = localStorage.getItem("username");
+  
+    if (nomeUsuario) {
+
+      const saudacao = document.createElement("h2");
+      saudacao.textContent = `Olá, ${nomeUsuario}! Bem-vindo de volta ao Amphiter `;
+      saudacao.style.color = "#ffffff";
+      saudacao.style.textAlign = "center";
+      saudacao.style.marginTop = "20px";
+      saudacao.style.fontFamily = "Anton, sans-serif";
+      document.querySelector(".card-principal").appendChild(saudacao);
+  
+      
+      document.getElementById("botao-sair").classList.remove("home2");
+    }
+  
+    document.getElementById("botao-sair").addEventListener("click", function () {
+      localStorage.removeItem("username");
+      window.location.href = "login.html";
+    });
+  </script>
+  
+  
 </body>
 
 </html>
