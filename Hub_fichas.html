@@ -221,7 +221,8 @@ justify-content: center;
 button {
 justify-content: center;
 font-family: "Josefin Sans", sans-serif;  
-  box-shadow: 0 0 15px #6200ff80;
+box-shadow: 0 0 15px #6200ff80;
+
 }
 
 button:hover {
@@ -229,24 +230,66 @@ background-color: #313131;
 
 
 }
+@media screen and (max-width: 500px) {
 
+.menu {
+justify-content: center;
+display: flex;
+font-size: 30px;
+}
+button {
+display: flex;
+justify-content: center;
+  
+}
+.text {
+justify-content: center;
+  font-size: 10px;
+width: 50px;
 
+}
+.voltar {
+height: 50px;
+}
+
+}
+
+@media screen and (max-width: 400px) {
+
+.menu {
+justify-content: center;
+display: flex;
+font-size: 10px;
+}
+button {
+display: flex;
+justify-content: center;
+  
+}
+.text {
+justify-content: center;
+  font-size: 8px;
+
+}
+.voltar {
+
+}
+
+}
 </style>
 <body>
   <header>
     <div class="header-content">
-      <h1>Menu de Fichas</h1>
+      <h1 class="menu">Menu de Fichas</h1>
     </div>
   </header>
 
   <main>
     <div class="btns">
       <a class="link" href="fichas.html"><button class="voltar"><span class="text">Voltar</span></button></a>   
-
-      <button id="addFichaGenerica"><span class="text">Criar Ficha Generica</span></button>
-      
-      <button id="removerFichasBtn"><span class="text">Remover Fichas Selecionadas</span></button>
-      <button id="selecionarTodasBtn"><span class="text">Selecionar Todas</span></button>
+         <button id="addFichaGenerica"><span class="text">Criar Ficha Generica</span></button>
+            <button id="removerFichasBtn"><span class="text">Remover Fichas Selecionadas</span></button>
+              <button id="selecionarTodasBtn"><span class="text">Selecionar Todas</span></button>
     </div>
     <div class="lista-fichas">
     <ul id="listaFichas"></ul>
@@ -433,4 +476,3 @@ background-color: #313131;
 </body>
 
 </html>
-
