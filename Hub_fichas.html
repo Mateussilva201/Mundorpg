@@ -29,22 +29,21 @@ body {
   
 }
 
-/* Container para alinhar logo e título lado a lado */
+
 .header-content {
   display: flex;
 justify-content: center;
   gap: 20px;
-  /* Espaçamento entre logo e h1 */
+  
   padding: 10px 0;
 }
 
-/* Estilo da logo */
+
 .logo {
   height: 60px;
   display: block;
 }
 
-/* Estilo do título */
 h1 {
   font-family: "Josefin Sans", sans-serif;  
   font-style: normal;
@@ -52,10 +51,9 @@ h1 {
   color: #ae00ff;
   font-size: 50px;
   margin: 0;
-  /* Remove margem padrão */
+ 
 }
 
-/* Botão */
 
 button {
   padding: 10px 20px;
@@ -160,7 +158,6 @@ button:hover {
   border-left: 4px solid #9370db;
 }
 
-/* Personalização da checkbox */
 .container {
   display: inline-block;
   position: relative;
@@ -189,13 +186,12 @@ button:hover {
   transition: all 0.2s ease;
 }
 
-/* Quando marcado */
+
 .container input:checked + .checkmark {
   background-image: linear-gradient(45deg, rgb(100, 61, 219), rgb(163, 152, 212));
   box-shadow: 3px 3px 0px rgb(183, 183, 183);
 }
 
-/* Checkmark: visual do traço */
 .checkmark:after {
   content: "";
   position: absolute;
@@ -209,7 +205,6 @@ button:hover {
   transform: rotate(45deg);
 }
 
-/* Exibe o traço ao marcar */
 .container input:checked + .checkmark:after {
   display: block;
 }
@@ -306,13 +301,12 @@ justify-content: center;
     let isMouseDown = false;
     let tudoSelecionado = false;
     
-    // Função principal que adiciona a ficha
+    
     function adicionarFicha(nome = "Ficha Nova", marcada = true, id = Date.now(), destino = "f_g.html") {
       const novaFicha = document.createElement("li");
       novaFicha.dataset.id = id;
       novaFicha.dataset.destino = destino;
-    
-      // Checkbox estilizada com label
+   
       const labelContainer = document.createElement("label");
       labelContainer.classList.add("container");
     
@@ -320,7 +314,6 @@ justify-content: center;
       checkbox.type = "checkbox";
       checkbox.checked = marcada;
     
-      // Evita que o clique na checkbox acione o redirecionamento
       checkbox.addEventListener("click", function (e) {
         e.stopPropagation();
       });
@@ -333,12 +326,12 @@ justify-content: center;
       labelContainer.appendChild(checkbox);
       labelContainer.appendChild(checkmarkDiv);
     
-      // Nome da ficha
+      
       const textoFicha = document.createElement("span");
       textoFicha.textContent = nome;
       textoFicha.classList.add("nome-ficha");
     
-      // Editar nome ao clicar
+      
       textoFicha.addEventListener("click", function (e) {
         e.stopPropagation();
         const input = document.createElement("input");
@@ -361,16 +354,16 @@ justify-content: center;
         });
       });
     
-      // Montagem do card
+  
       novaFicha.appendChild(labelContainer);
       novaFicha.appendChild(textoFicha);
       lista.appendChild(novaFicha);
     
-      // Redireciona ao clicar no <li> fora da checkbox ou nome
+     
       novaFicha.addEventListener("click", (e) => {
-        // Ignora cliques em elementos interativos
+     
         if (
-          e.target.closest(".container") || // checkbox customizada
+          e.target.closest(".container") || 
           e.target.tagName === "INPUT" ||
           e.target.classList.contains("input-edit") ||
           e.target.classList.contains("nome-ficha")
@@ -384,13 +377,12 @@ justify-content: center;
     }
     
     
-    
-    // Botão para adicionar Ficha Genérica (vai para f_g.html)
+   
     btnAdicionarGenerica.addEventListener("click", function () {
       adicionarFicha("Ficha Genérica", false, Date.now(), "f_g.html");
     });
     
-    // Botão para remover fichas selecionadas
+    
     btnRemover.addEventListener("click", function () {
       const fichas = document.querySelectorAll("#listaFichas li");
       fichas.forEach(ficha => {
@@ -406,7 +398,7 @@ justify-content: center;
       salvarFichas();
     });
     
-    // selecionar todas
+
     btnSelecionarTodas.addEventListener("click", () => {
       const fichas = document.querySelectorAll("#listaFichas li input[type='checkbox']");
       fichas.forEach(checkbox => {
@@ -417,14 +409,13 @@ justify-content: center;
       tudoSelecionado = !tudoSelecionado;
       btnSelecionarTodas.textContent = tudoSelecionado ? "Desmarcar Todas" : "Selecionar Todas";
     
-      // Aplica ou remove a classe visual ativa
+      
       btnSelecionarTodas.classList.toggle("ativo", tudoSelecionado);
     
       salvarFichas();
     });
     
-    
-    // Seleção múltipla com arrasto
+  
     lista.addEventListener("mousedown", function (e) {
       if (e.target.closest(".nome-ficha")) return;
       if (e.target.closest("li")) {
@@ -449,7 +440,6 @@ justify-content: center;
       if (checkbox) checkbox.checked = !checkbox.checked;
     }
     
-    // Salva todas as fichas no localStorage
     function salvarFichas() {
       const fichas = [];
       document.querySelectorAll("#listaFichas li").forEach(li => {
@@ -462,7 +452,7 @@ justify-content: center;
       localStorage.setItem("fichas", JSON.stringify(fichas));
     }
     
-    // Carrega fichas ao iniciar
+  
     function carregarFichas() {
       const fichasSalvas = JSON.parse(localStorage.getItem("fichas") || "[]");
       fichasSalvas.forEach(ficha => {
@@ -476,3 +466,4 @@ justify-content: center;
 </body>
 
 </html>
+
