@@ -147,14 +147,14 @@
       }
     }
     
-    /* BOTÕES */
+    
     .itens-links a {
       margin-left: 20px;
       font-size: 1.1rem;
       background-color: #111;
     }
     
-    /* Botão animado */
+    
     .animated-button {
       position: relative;
       display: flex;
@@ -242,7 +242,7 @@
       box-shadow: 0 0 0 4px #a12fff;
     }
     
-    /* MAIN */
+    
     main {
       background-image: url('imagens/fundo_dragao_masmorra.png');
       background-size: cover;
@@ -320,8 +320,9 @@
     }
     
     .equipe {
-      margin: auto 400px;
-      padding: 0 5vw;
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
     }
     
     .patroes-titulo {
@@ -333,6 +334,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      justify-content: center;
     }
     
     .card-contato {
@@ -371,7 +373,7 @@
       margin-top: 10px;
     }
     
-    /* FOOTER */
+  
     .footer {
       color: white;
       padding: 30px 20px 15px;
@@ -415,46 +417,7 @@
       align-items: center;
     }
     
-    /* RESPONSIVO */
-    @media (max-width: 768px) {
-      .card-titulo-gradiente {
-        width: 90%;
-        font-size: 40px;
-      }
     
-      .contato-section {
-        padding: 30px 20px;
-      }
-    
-      .equipe {
-        margin: 0;
-        padding: 0 20px;
-      }
-    
-      .contato-suporte {
-        padding: 15px;
-        margin: 0 20px 30px 20px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .card-titulo-gradiente {
-        font-size: 30px;
-        padding: 15px;
-      }
-    
-      .contato-titulo {
-        font-size: 26px;
-      }
-    
-      .footer-container {
-        padding: 10px;
-      }
-    
-      .footer-logo span {
-        font-size: 16px;
-      }
-    }
     .menuhorizon {
 color: rgb(0, 0, 0);
 font-size: 20px;
@@ -505,7 +468,7 @@ background-color: #9b6bd3;
   border-left: 3px solid rgb(58, 5, 94);
   padding-left: 20px;
 }
-    
+  
     
     
     </style>
@@ -534,9 +497,9 @@ background-color: #9b6bd3;
 
        
   </header> 
-  <!-- Fim Header -->
+ 
 
-  <!-- Main -->
+  
   <section class="fundo-dragon">
     <div class="conteudo">
       <main class="contato-section">
@@ -544,7 +507,7 @@ background-color: #9b6bd3;
           CONTATO <span class="titulo-card">NEW WORLD</span>
         </h2>
 
-        <!-- Bloco de Suporte -->
+        
         <div class="contato-suporte">
           PRECISA DE AJUDA?
           <div class="suporte-info">
@@ -554,7 +517,6 @@ background-color: #9b6bd3;
           </div>
         </div>
 
-        <!-- Bloco de Equipe -->
         <div class="equipe">
           <h3 class="patroes-titulo">
             <span class="titulo-card">PATRÕES</span>
@@ -621,9 +583,9 @@ background-color: #9b6bd3;
       </main>
     </div>
   </section>
-  <!-- Fim Main -->
 
-  <!-- Footer -->
+
+
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-status">
@@ -641,7 +603,7 @@ background-color: #9b6bd3;
       </div>
     </div>
   </footer>
-  <!-- Fim Footer -->
+ 
 </body>
 
 </html>
